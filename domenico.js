@@ -27,16 +27,7 @@ checkEcho(yodel); // "Yodelayheeeeehooooo", "Yodelayheeeeehooo", "Yodelayheeeeeh
 //5. rectangle Intersection
 
 function intersect(a,b){
-    /*let x1=a[0][0]
-    let y1=a[0][1]
-    let x2=a[1][0]
-    let y2=a[1][1]
-    let x3=b[0][0]
-    let y3=b[0][1]
-    let x4=b[1][0]
-    let y4=b[1][1]
-    let l1=[]*/
-
+   
     let leftA = Math.min(a[0][0], a[1][0])
     let rightA = Math.max(a[0][0], a[1][0])
     let bottomA = Math.min(a[0][1], a[1][1])
@@ -53,36 +44,112 @@ function intersect(a,b){
     let bottom = Math.max(bottomA, bottomB)
     let top =  Math.min(topA, topB)
     
-    
     console.log([left,bottom],[right,top])
-    
-    /*for (x1; x1<=x2; x1++){
-      //  console.log(x1)
-         for (x3; x3<=x4; x3++){
-           // console.log(x3)
-            if (x1-x3==0){
-                console.log(x1)
-               l1[x1].push(x1) 
-            }
-         }
-    }
-     console.log(l1)} 
-   //console.log(j,h,k,p)
-    console.log(a[0][0])
-    for(h=a[0][0];h<a[0][1];h++){
-        console.log(h)
-    }*/
-   
-} 
+    } 
 
 intersect([[1, 1], [4, 3]], [[2, 2], [6, 7]]); // => [2, 2], [4, 3]
 intersect([[2, 1], [4, 4]], [[1, 1], [8, 8]]); // => [2, 1], [4, 4]
 
 
 //8. myFilter
-const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-const result = words.filter(word => word.length > 6);
-const res = words.forEach((word) => word.length > 6);
 
-console.log(res)
+const myFilter = (collection, fn) => {
+    const result = [];
+    myEach(collection, function(el, index, arr) {
+      if (fn(el, index, arr)) {
+        result.push(el);
+      }
+    });
+  
+    return result;
+  }
+  
+  const filtered = myFilter([2, 8, 5, 15], function(el, index) {
+    return el % index === 0;
+  });
 
+
+//11. Min, Max, Length and Average
+
+function minMaxLengthAverage(arr) {
+  let mmla=[]
+
+  function minmax(items) {
+    return items.reduce((acc, val) => {
+        acc[0] = ( acc[0] === undefined || val < acc[0] ) ? val : acc[0]
+        acc[1] = ( acc[1] === undefined || val > acc[1] ) ? val : acc[1]
+        acc[2] = items.length
+        return acc;
+    }, []);
+    }
+
+    let average = arr.reduce((total, next, idx, array) => {
+
+        total += next;
+      
+        if (idx === array.length - 1) { 
+          return total / array.length;
+        } else { 
+          return total;
+        }
+      });
+      
+  mmla=[...minmax(arr)]
+  mmla.push(average)
+       
+ return mmla
+ 
+}
+console.log(minMaxLengthAverage([7, 13, 3, 77, 100])); // [ 3, 100, 5, 40 ]
+
+
+//14. Convert Key, Values to an array of arrays
+
+function objectToArray(obj){
+var array = Object.keys(obj)
+      .map(function(key) {
+        return [key,obj[key]]
+        });
+console.log(array);}
+objectToArray({likes: 2, dislikes: 3, followers: 10}) // [["likes", 2], ["dislikes", 3], ["followers", 10]]
+
+
+//17. Who is the president ?
+function whoIsThePresident(arr) {
+        if(!arr.length){return console.log('Is it a democratic vote here ? Please vote again')}
+       let vote = [];
+  
+       arr.forEach(candidate => vote[candidate] ? vote[candidate]++ : vote[candidate] = 1);
+       let highestscore = [Object.keys(vote)[0], Object.values(vote)[0]];
+       for(candidate in vote)
+       {
+           if (vote[candidate]> highestscore[1])
+           {
+                highestscore=[candidate,vote[candidate]];
+            }else if (candidate != highestscore[0]&& vote[candidate]===highestscore[1])
+            {
+                highestscore.push('DRAW');
+            }
+       }
+        return console.log(highestscore.includes('DRAW')?"We got a draw ! Please vote again.": `${highestscore[0]} is our new president with ${highestscore[1]} votes!`)
+};
+whoIsThePresident(["Teddy Bear", "Chewbacca", "Dracula", "Chewbacca"]); // Chewbacca is our new president with 2 votes !
+
+whoIsThePresident(["Chewbacca", "Teddy Bear", "Dracula", "Chewbacca", "Dracula"]); // We got a draw ! Please vote again.
+
+whoIsThePresident([]); // Is it a democratic vote here ? Please vote again.
+
+
+//20. Alphabet Looper
+
+
+
+const alphabetLetter = alphabetLooper('abcdefghijklmnopqrstuvwxyz');
+alphabetLetter();   // 'a'
+alphabetLetter();   // 'b'
+alphabetLetter();   // 'c'
+        .
+        .
+        .
+alphabetLetter();   // 'z'
+alphabetLetter();   // 'a'
