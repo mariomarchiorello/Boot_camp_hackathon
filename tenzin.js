@@ -97,23 +97,23 @@ console.log(arrayOfMultiples(7, 5)) //  [7, 14, 21, 28, 35]
 
 
 function lovesMe(num) {
-    let result = [];
+    let result = "";
 
-    for (let x = 0; x <= num; x++) {
-        if (x === 0) {
-            result.push("Loves me,")
-        } else if (x % 2 === 0) {
-            result.push("Loves me,")
-        } else {
-            result.push("Loves me not,")
+    for (let x = 0; x < num; x++) {
+        let sentence = x % 2 === 0 ? "Loves me," : "Loves me not,";
+        if ( x ===  num - 1){
+            
+            sentence = sentence.toUpperCase()
         }
+       result += sentence 
     }
-    console.log(result)
+
+   return result.slice(0, -1);
 }
 
 // need to make last element capital 
 
-lovesMe(3) // "Loves me, Loves me not, LOVES ME"
+console.log(lovesMe(3)) // "Loves me, Loves me not, LOVES ME"
 lovesMe(6) // "Loves me, Loves me not, Loves me, Loves me not, Loves me, LOVES ME NOT"
 lovesMe(1) // "LOVES ME"
 
@@ -152,6 +152,8 @@ console.log(hashtagsGenerator("Propulsion Academy Students Are Amazing")); // #P
 console.log(hashtagsGenerator("")); // false
 
 
+
+
 // 25. Break Up Camel Case …
 function breakUpCamelCase(str) {
     return str.replace(/(\B[A-Z])/g, ' $1');
@@ -160,5 +162,13 @@ function breakUpCamelCase(str) {
 
 console.log(breakUpCamelCase('breakUpCamelCase')); // break Up Camel Case
 console.log(breakUpCamelCase('fullStackProgram')); // full Stack Program
+
+
+
+
+
+
+
+
 
 
