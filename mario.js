@@ -17,15 +17,12 @@
 
 // calculator(3,1,"+");
 
-
-
 // console.log("------------------ myEach Funtion------------------")
-// WORKS
 
 // let arr= [8,5,6,3,4];
 // const cb = parameter => parameter + parameter;
 // function myForEach(arr, cb) {
-//     var mapped = [];
+//     let mapped = [];
 //      for (let i = 0; i < arr.length; i++){
 //          mapped.push(cb(arr[i]))
 //      }
@@ -45,12 +42,9 @@
 //     newObj = Object.assign(para1,para2,para3);
 //     console.log(newObj);
 // };
-
 // mergeObjects({ a: 3, b: 2 }, { a: 2, c: 4 }, { e: 8, c: 5});
 
-
 // console.log("------------------ word count Funtion------------------")
-
 
 // function wordCount (string){
 //     let StringLenght = string.split(" ").length;
@@ -62,29 +56,37 @@
 
 // console.log("------------------ print the century Funtion------------------")
 
+// function printTheCentury (number){
+//     let cent = Math.ceil(number/100)+1; 
+//     if (cent === 1 ||  cent===31 ||  cent===41 ||  cent===51||  cent===61||  cent===71||  cent===81||  cent===91){
+//         console.log(`${cent}st century`); 
+//     }else{
+//         console.log(`${cent}th centruy`);
+//     };
+// };
+
+// console.log("------------------ switch cases in string Funtion------------------")
+
+// let text = 'So, today we have REALLY good day';
+
+// String.prototype.switcheroonie = function (c) { return text.split('').map((c) => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join('')};
+
+// const newWord = text.switcheroonie();
+// console.log(newWord)
+
+// console.log("------------------ can i build the word Funtion------------------")
 
 
-// const transformed = year.toString().split("");
-
-
-
-
-// const year=2100;
-// function printTheCentury (Number){    
-    
-    
-    
-
-// printTheCentury(year)
-
-/* 
-if the number length is <= 3 take  [0] index, add 1 and the matching string
-if the number length is >=4 take the [0 and 1] index, add one and the matching string
-
-
-*/ 
-
-
-
-
-
+// const areEqual = (blob, word) => {
+//     const first = blob.split("");
+//     const second =word.split("");    
+//     for(let i = 0; i < first.length; i++){
+//        if(!second.includes(first[i])){
+//           console.log( false);
+//        };
+//     };
+//     console.log(true);
+//  };
+//  areEqual("oria","mario");            
+            
+            
